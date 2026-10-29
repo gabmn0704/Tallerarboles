@@ -14,8 +14,10 @@ Es el mismo principio de los sistemas de «20 preguntas»: un árbol binario don
 
 ## Qué incluye
 
-- Juego guiado con atajos de teclado (`S` / `N`).
-- Diagrama SVG del árbol que resalta el camino recorrido y anima los nodos nuevos.
+- Juego guiado con atajos de teclado (`S` / `N`) y un **búho mascota** que reacciona (piensa, celebra, se entristece).
+- Animaciones: texto que aparece palabra a palabra, indicador «pensando», confeti al ganar o aprender, hojas cayendo de fondo.
+- Sonidos opcionales (botón de la bocina) y tema claro/oscuro manual.
+- Diagrama SVG del árbol que resalta el camino recorrido, dibuja las ramas y anima los nodos nuevos.
 - Recorridos: preorden, inorden, postorden y por niveles (BFS).
 - Estadísticas: animales (hojas), preguntas (nodos internos) y altura.
 - Persistencia en `data/tree.json` y botón para reiniciar el árbol.
@@ -32,15 +34,26 @@ tests/             # pytest: lógica del árbol y API
 run.py             # arranque
 ```
 
-## Ejecutar
+## Ejecutar (Visual Studio Code)
+
+Requisito: Python 3.10 o superior.
+
+1. Abre la carpeta del proyecto en VS Code (`Archivo > Abrir carpeta`).
+2. Ejecuta con un clic:
+   - **Windows:** doble clic en `run.bat`
+   - **Mac / Linux:** `./run.sh`
+3. Se crea el entorno virtual, se instala Flask y se abre el navegador en http://127.0.0.1:5000
+
+Manual, desde la terminal de VS Code:
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+python -m venv .venv
+.venv\Scripts\activate        # Windows  (Mac/Linux: source .venv/bin/activate)
 pip install -r requirements.txt
 python run.py
 ```
 
-Abre http://127.0.0.1:5000
+También puedes pulsar **F5** en VS Code (configuración «Arbolito Adivino»).
 
 ## Pruebas
 
