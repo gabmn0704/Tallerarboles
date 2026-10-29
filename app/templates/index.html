@@ -1,1 +1,51 @@
-<!doctype html><title>x</title>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arbolito Adivino</title>
+  <meta name="description" content="Piensa en un animal y un árbol de decisión que aprende intentará adivinarlo.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='9' r='5' fill='%2384cc5f'/%3E%3Ccircle cx='8' cy='24' r='4' fill='%23e8b04a'/%3E%3Ccircle cx='24' cy='24' r='4' fill='%23e8b04a'/%3E%3Cpath d='M16 14 8 20M16 14l8 6' stroke='%2384cc5f' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M16 12 8 21M16 12l8 9" class="brand-edge"/><circle cx="16" cy="9" r="5" class="brand-root"/><circle cx="8" cy="23" r="4" class="brand-leaf"/><circle cx="24" cy="23" r="4" class="brand-leaf"/></svg>
+      <span>Arbolito Adivino</span>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="reset-btn" type="button">Reiniciar árbol</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card game" aria-live="polite">
+      <p class="eyebrow" id="step-label">Taller de Árboles · Árbol de decisión</p>
+      <div id="stage"></div>
+      <ol class="trail" id="trail" aria-label="Respuestas dadas"></ol>
+    </section>
+
+    <section class="card tree-card">
+      <div class="card-head">
+        <h2>Así piensa el árbol</h2>
+        <ul class="stats" id="stats"></ul>
+      </div>
+      <div class="tree-scroll" id="tree-scroll"><svg id="tree-svg" role="img" aria-label="Diagrama del árbol de decisión"></svg></div>
+      <div class="legend"><span><i class="dot q"></i>Pregunta</span><span><i class="dot a"></i>Animal (hoja)</span><span><i class="dot p"></i>Camino actual</span></div>
+    </section>
+
+    <section class="card trav">
+      <div class="card-head">
+        <h2>Recorridos</h2>
+        <div class="tabs" role="tablist" id="tabs"></div>
+      </div>
+      <p class="trav-hint" id="trav-hint"></p>
+      <ol class="chips" id="chips"></ol>
+    </section>
+  </main>
+
+  <footer class="foot">Árbol binario · cada «sí» baja a la izquierda y cada «no» a la derecha · el árbol crece con cada partida perdida.</footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
